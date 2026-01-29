@@ -14,7 +14,7 @@ logo.addEventListener('click', function(e) {
 logo.addEventListener('click', function(e) {
   e.preventDefault();
 
-  const scrollDuration = 99000; // duration in milliseconds (1.5 seconds)
+  const scrollDuration = 1000; // duration in milliseconds (1.5 seconds)
   const start = window.scrollY;
   const startTime = performance.now();
 
