@@ -10,3 +10,24 @@ logo.addEventListener('click', function(e) {
     behavior: 'smooth' // smooth scroll animation
   });
 });
+
+logo.addEventListener('click', function(e) {
+  e.preventDefault();
+
+  const scrollDuration = 99000; // duration in milliseconds (1.5 seconds)
+  const start = window.scrollY;
+  const startTime = performance.now();
+
+  function scrollStep(currentTime) {
+    const elapsed = currentTime - startTime;
+    const progress = Math.min(elapsed / scrollDuration, 1); // 0 → 1
+    const ease = 1 - Math.pow(1 - progress, 3); // ease-out cubic
+    window.scrollTo(0, start * (1 - ease));
+
+    if (progress < 1) {
+      requestAnimationFrame(scrollStep);
+    }
+  }
+
+  requestAnimationFrame(scrollStep);
+});
