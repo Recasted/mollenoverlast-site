@@ -183,8 +183,8 @@ section p {
 
 
 .logo-track img:hover {
-  transform: scale(1.2);  /* grow 20% on hover */
-  filter: brightness(1.2); /* optional: brighten slightly */
+  transform: scale(1.25);  /* grow 20% on hover */
+  filter: brightness(1.25); /* optional: brighten slightly */
 }
 
 @keyframes scroll {
@@ -204,4 +204,15 @@ section p {
   }
 }
 
+.nav-logo {
+  height: 80px; /* adjust to your desired size */
+  transition: transform 0.3s ease, filter 0.3s ease;
+  cursor: pointer;
+}
+
+.nav-logo:hover,
+.nav-logo:active {
+  transform: scale(1.1);   /* grow 10% */
+  filter: brightness(1.1); /* optional: slightly brighten */
+}
 
