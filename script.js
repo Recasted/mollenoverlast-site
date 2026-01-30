@@ -32,11 +32,29 @@ logo.addEventListener('click', function(e) {
   requestAnimationFrame(scrollStep);
 });
 
-const hamburger = document.getElementById('hamburger');
-const menu = document.getElementById('menu');
+document.addEventListener("DOMContentLoaded", function() {
+  // Dropdown menu
+  const hamburger = document.getElementById("hamburger");
+  const menu = document.getElementById("menu");
 
-hamburger.addEventListener('click', () => {
-  hamburger.classList.toggle('active');
-  menu.classList.toggle('active');
+  if(hamburger && menu){
+    hamburger.addEventListener("click", function() {
+      hamburger.classList.toggle("active");
+      menu.classList.toggle("active");
+    });
+  }
+
+  // Smooth scroll for header logo
+  const logoLinks = document.querySelectorAll('.logo-link');
+  logoLinks.forEach(link => {
+    link.addEventListener('click', function(e){
+      e.preventDefault();
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  });
 });
+
 
