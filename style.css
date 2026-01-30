@@ -1,4 +1,12 @@
 /* RESET / BASE */
+
+html, body {
+  height: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+
 body {
   font-family: 'Open Sans', sans-serif;
   margin: 0;
@@ -10,7 +18,7 @@ body {
 /* HERO */
 .hero {
   position: relative;
-  height: 100vh;
+  min-height: 100vh;   /* allows growth */
   background-color: #0f2f1f;
   background-repeat: no-repeat;
   background-position: center center;
@@ -22,11 +30,43 @@ body {
   align-items: center;           /* center horizontally */
   text-align: center;
 
-  padding-top: 100px;            /* space from top */
+  padding-top: 40px;            
   padding-left: 20px;
   padding-right: 20px;
   overflow: hidden;
 }
+.hero-content p {
+  margin: 0;
+  line-height: 1.7;
+}
+
+.hero {
+  min-height: 100vh;   /* allows page to scroll */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;  /* text at top */
+  align-items: center;           /* center horizontally */
+  text-align: center;
+  padding: 20px;                 /* space on mobile */
+}
+
+.hero-content a,
+section a {
+  color: #0077cc;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.hero-content a:hover,
+section a:hover {
+  text-decoration: underline;
+}
+
+/* ONLY the second paragraph */
+.hero-content p:nth-of-type(2) {
+  margin-top: 90px;
+}
+
 
 .hero-content {
   max-width: 600px;  /* prevents text from stretching too wide */
@@ -41,6 +81,16 @@ body {
 .hero-content p {
   font-size: 1.3rem;
   margin-bottom: 10px;
+}
+
+.text-link {
+  color: inherit;           /* same color as surrounding text */
+  text-decoration: none;    /* remove underline */
+  font-weight: inherit;     /* same weight as text */
+}
+
+.text-link:hover {
+  text-decoration: underline; /* subtle hover cue */
 }
 
 .btn-primary {
@@ -62,6 +112,9 @@ body {
   cursor: pointer;
 }
 
+.btn-primary {
+  color: #fff !important;
+}
 
 
 /* ANIMATED BACKGROUND (BELOW HERO ONLY) */
@@ -126,43 +179,132 @@ section p {
   }
 }
 /* TOP HEADER / NAV */
+/* Top header */
 .top-header {
-  position: fixed;
+  position: fixed; /* make header stay on top */
   top: 0;
   left: 0;
   width: 100%;
   height: 80px;
-
+  background-color: #f8f8f8;
   display: flex;
-  justify-content: center;
+  justify-content: center; /* logo remains centered */
   align-items: center;
+  z-index: 9999; /* ensure it’s above everything */
+}
 
-  z-index: 1000;
-  background: #F6F5F2; 
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1); 
+/* Optional: push page content down so header doesn’t cover hero */
+body {
+  padding-top: 80px; /* same height as header */
 }
 
 
+/* Hamburger container top-left */
+.hamburger-container {
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  transform: translateY(-50%);
+  z-index: 101;
+}
+
+/* Hamburger icon */
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.hamburger span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background-color: #111;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Hamburger active animation */
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Dropdown menu */
+.menu {
+  position: absolute;
+  top: 35px; /* below hamburger */
+  left: 0;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  z-index: 102;
+}
+
+.menu a {
+  padding: 10px 20px;
+  text-decoration: none;
+  color: #111;
+  transition: background 0.2s;
+}
+
+.menu a:hover {
+  background-color: #f0f0f0;
+}
+
+/* Show menu */
+.menu.active {
+  max-height: 200px; /* adjust based on number of links */
+}
+
+/* Logo stays centered */
+.nav-logo {
+  height: 60px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.nav-logo:hover {
+  transform: scale(1.1);
+}
 
 .nav-inner {
   width: 100%;
-  max-width: 1200px;
-
+  max-width: 1200px; /* optional for very wide screens */
   display: flex;
-  justify-content: center;
+  justify-content: center; /* centers logo horizontally */
   align-items: center;
-
   padding: 0 20px;
+  box-sizing: border-box;
 }
 
 .nav-logo {
-  height: 100px; /*increase logo header size */
+  height: 70px; /*increase logo header size */
   width: auto;
   display: block;
   margin: 5px 0;  /* small padding inside the header */
 }
+.nav-logo {
+  max-width: 100%; /* scale down on small screens */
+  height: auto;
+}
 
+/* LOGO BAR / INFINITE SCROLL */
 .logo-bar {
+  width: 100%;
   overflow: hidden;
   background: #f4f6f5;
   padding: 30px 0;
@@ -170,37 +312,32 @@ section p {
 
 .logo-track {
   display: flex;
-  width: max-content;  /* grow to fit all logos */
-  animation: scroll 20s linear infinite;
+  width: max-content;          /* allows natural width */
+  animation: scroll 40s linear infinite; /* slower, smooth scroll */
 }
 
 .logo-track img {
   height: 60px;
-  margin: 0 60px; /* increased from 40px → 60px */
-  transition: transform 0.3s ease, filter 0.3s ease;
+  margin: 0 60px; /* keep spacing */
+  flex-shrink: 0;
   cursor: pointer;
+  transition: transform 0.3s ease, filter 0.3s ease;
 }
 
-
 .logo-track img:hover {
-  transform: scale(1.25);  /* grow 20% on hover */
-  filter: brightness(1.25); /* optional: brighten slightly */
+  transform: scale(1.25);
+  filter: brightness(1.25);
 }
 
 @keyframes scroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%); /* move left by half of the track */
-  }
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); } /* move by half track for seamless loop */
 }
 
-/* RESPONSIVE */
-@media (max-width: 768px) {
+@media (max-width: 1960px) {
   .logo-track img {
     height: 40px;
-    margin: 0 30px; /* smaller spacing for mobile */
+    margin: 0 30px;
   }
 }
 
