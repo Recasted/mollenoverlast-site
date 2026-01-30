@@ -241,7 +241,7 @@ body {
 
 .logo-track {
   display: flex;
-  width: 300%; /* long enough to fill screen and allow smooth loop */
+  width: 300%; /* make the track three times longer so it scrolls seamlessly */
   animation: scroll 20s linear infinite;
 }
 
@@ -253,8 +253,8 @@ body {
 }
 
 .logo-track img:hover {
-  transform: scale(1.25);  /* grow 25% */
-  filter: brightness(1.25); /* brighten slightly */
+  transform: scale(1.25);
+  filter: brightness(1.25);
 }
 
 @keyframes scroll {
@@ -262,15 +262,16 @@ body {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-33.3333%); /* smooth continuous loop */
+    transform: translateX(-33.3333%); /* move left by one-third of track width */
   }
 }
 
-/* RESPONSIVE */
 @media (max-width: 768px) {
-  .hero-content h1 {
-    font-size: 2rem;
+  .logo-track img {
+    height: 40px;
+    margin: 0 30px;
   }
+}
 
   .hero-content p {
     font-size: 1rem;
@@ -294,3 +295,4 @@ body {
     margin: 0 30px;
   }
 }
+
