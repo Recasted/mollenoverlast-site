@@ -1,38 +1,30 @@
 /* RESET / BASE */
 html, body {
-  height: auto;
-  overflow-x: hidden;
-  overflow-y: auto;
   margin: 0;
   padding: 0;
   font-family: 'Open Sans', sans-serif;
-  background: #9baf40;
   color: #111;
+  background: #9baf40;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 /* HERO */
 .hero {
   position: relative;
-  min-height: 100vh;   /* allows growth and scrolling */
+  min-height: 100vh;
   background-color: #0f2f1f;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: contain;
-
   display: flex;
   flex-direction: column;
-  justify-content: center;   /* center vertically */
-  align-items: center;       /* center horizontally */
+  justify-content: flex-start;
+  align-items: center;
   text-align: center;
-
-  padding: 20px;             /* space on mobile and top */
-  overflow: hidden;
+  padding: 40px 20px;
 }
 
 .hero-content {
-  max-width: 600px;  /* prevents text from stretching too wide */
+  max-width: 600px;
   color: white;
-  text-align: center;
 }
 
 .hero-content h1 {
@@ -42,28 +34,14 @@ html, body {
 
 .hero-content p {
   font-size: 1.3rem;
-  margin: 10px 0 0 0;
+  margin-bottom: 10px;
   line-height: 1.7;
 }
 
-/* Only add extra space between first and second paragraph */
 .hero-content p:nth-of-type(2) {
-  margin-top: 40px;
+  margin-top: 20px; /* extra space between 1st & 2nd paragraph */
 }
 
-.hero-content a,
-section a {
-  color: #0077cc;
-  text-decoration: none;
-  font-weight: 600;
-}
-
-.hero-content a:hover,
-section a:hover {
-  text-decoration: underline;
-}
-
-/* Buttons */
 .btn-primary {
   display: inline-block;
   margin-top: 20px;
@@ -72,10 +50,8 @@ section a:hover {
   color: #fff !important;
   text-decoration: none;
   border-radius: 6px;
-  font-size: 1.1em;
+  font-size: 1.1rem;
   transition: background 0.3s ease;
-  position: relative;
-  z-index: 2;
 }
 
 .btn-primary:hover {
@@ -83,15 +59,145 @@ section a:hover {
   cursor: pointer;
 }
 
-/* ANIMATED BACKGROUND (BELOW HERO ONLY) */
-#bg {
+/* TOP HEADER / NAV */
+.top-header {
   position: fixed;
-  top: 100vh;
+  top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
-  z-index: 0;
-  pointer-events: none;
+  height: 80px;
+  background-color: #f8f8f8;
+  display: flex;
+  justify-content: center; /* centers logo horizontally */
+  align-items: center;
+  z-index: 9999;
+}
+
+body {
+  padding-top: 80px; /* header offset */
+}
+
+/* Hamburger */
+.hamburger-container {
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  transform: translateY(-50%);
+  z-index: 101;
+}
+
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.hamburger span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background-color: #111;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Dropdown Menu */
+.menu {
+  position: absolute;
+  top: 35px;
+  left: 0;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  overflow: hidden;
+  max-height: 0;
+  display: flex;
+  flex-direction: column;
+  transition: max-height 0.3s ease;
+  z-index: 102;
+}
+
+.menu a {
+  padding: 10px 20px;
+  text-decoration: none;
+  color: #111;
+  transition: background 0.2s;
+}
+
+.menu a:hover {
+  background-color: #f0f0f0;
+}
+
+.menu.active {
+  max-height: 300px; /* expand to fit all links */
+}
+
+/* Centered Logo */
+.nav-inner {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  justify-content: center; /* logo centered horizontally */
+  align-items: center;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.nav-logo {
+  display: block;
+  margin: 5px 0;
+  height: auto;       /* keep original size */
+  max-width: 100%;    /* scale down on small screens */
+  transition: transform 0.3s ease, filter 0.3s ease;
+  cursor: pointer;
+}
+
+.nav-logo:hover {
+  transform: scale(1.1);
+  filter: brightness(1.1);
+}
+
+/* LOGO BAR */
+.logo-bar {
+  overflow: hidden;
+  background: #f4f6f5;
+  padding: 30px 0;
+}
+
+.logo-track {
+  display: flex;
+  width: max-content; /* keeps infinite loop seamless */
+  animation: scroll 20s linear infinite;
+}
+
+.logo-track img {
+  height: 60px;
+  margin: 0 60px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  cursor: pointer;
+}
+
+.logo-track img:hover {
+  transform: scale(1.25);
+  filter: brightness(1.25);
+}
+
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
 /* CONTENT SECTIONS */
@@ -114,185 +220,15 @@ section p {
   line-height: 1.6;
   text-align: center;
   max-width: 800px;
-  margin: 0 auto;
+  margin: 0 auto 15px auto;
 }
 
-/* TOP HEADER / NAV */
-.top-header {
-  position: fixed; /* stay on top */
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 80px;
-  background-color: #f8f8f8;
-  display: flex;
-  justify-content: center; /* logo centered */
-  align-items: center;
-  z-index: 9999;
-}
-
-/* Push content down so header doesn't cover hero */
-body {
-  padding-top: 80px;
-}
-
-/* Hamburger container top-left */
-.hamburger-container {
-  position: absolute;
-  top: 50%;
-  left: 20px;
-  transform: translateY(-50%);
-  z-index: 101;
-}
-
-/* Hamburger icon */
-.hamburger {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 30px;
-  height: 20px;
-  cursor: pointer;
-}
-
-.hamburger span {
-  display: block;
-  height: 3px;
-  width: 100%;
-  background-color: #111;
-  border-radius: 2px;
-  transition: all 0.3s ease;
-}
-
-/* Hamburger active animation */
-.hamburger.active span:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
-}
-.hamburger.active span:nth-child(2) {
-  opacity: 0;
-}
-.hamburger.active span:nth-child(3) {
-  transform: rotate(-45deg) translate(5px, -5px);
-}
-
-/* Dropdown menu */
-.menu {
-  position: absolute;
-  top: 35px; /* below hamburger */
-  left: 0;
-  background-color: #fff;
-  border-radius: 5px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-  overflow: hidden;
-  max-height: 0;
-  transition: max-height 0.3s ease;
-  display: flex;
-  flex-direction: column;
-  z-index: 102;
-}
-
-.menu a {
-  padding: 10px 20px;
-  text-decoration: none;
-  color: #111;
-  transition: background 0.2s;
-}
-
-.menu a:hover {
-  background-color: #f0f0f0;
-}
-
-.menu.active {
-  max-height: 300px; /* enough to fit all links */
-}
-
-/* Logo stays centered and hover effect intact */
-.nav-inner {
-  width: 100%;
-  max-width: 1200px;
-  display: flex;
-  justify-content: center; /* centers logo */
-  align-items: center;
-  padding: 0 20px;
-  box-sizing: border-box;
-}
-
-.nav-logo {
-  height: 80px; /* KEEP as is */
-  width: auto;
-  display: block;
-  margin: 5px 0;
-  cursor: pointer;
-  transition: transform 0.3s ease, filter 0.3s ease;
-}
-
-.nav-logo:hover,
-.nav-logo:active {
-  transform: scale(1.1);
-  filter: brightness(1.1);
-}
-
-/* LOGO BAR / INFINITE SCROLL */
-.logo-bar {
-  overflow: hidden;
-  background: #f4f6f5;
-  padding: 30px 0;
-}
-
-.logo-track {
-  display: flex;
-  width: 300%; /* make the track three times longer so it scrolls seamlessly */
-  animation: scroll 20s linear infinite;
-}
-
-.logo-track img {
-  height: 60px;
-  margin: 0 60px;
-  transition: transform 0.3s ease, filter 0.3s ease;
-  cursor: pointer;
-}
-
-.logo-track img:hover {
-  transform: scale(1.25);
-  filter: brightness(1.25);
-}
-
-@keyframes scroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-33.3333%); /* move left by one-third of track width */
-  }
-}
-
+/* RESPONSIVE */
 @media (max-width: 768px) {
-  .logo-track img {
-    height: 40px;
-    margin: 0 30px;
-  }
+  .hero-content h1 { font-size: 2rem; }
+  .hero-content p { font-size: 1rem; }
+  .btn-primary { padding: 12px 20px; font-size: 1em; }
+  section h2 { font-size: 1.5rem; }
+  section p { font-size: 1rem; }
+  .logo-track img { height: 40px; margin: 0 30px; }
 }
-  .hero-content p {
-    font-size: 1rem;
-  }
-
-  .btn-primary {
-    padding: 12px 20px;
-    font-size: 1em;
-  }
-
-  section h2 {
-    font-size: 1.5rem;
-  }
-
-  section p {
-    font-size: 1rem;
-  }
-
-  .logo-track img {
-    height: 40px;
-    margin: 0 30px;
-  }
-}
-
-
