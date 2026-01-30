@@ -151,19 +151,17 @@ body {
 }
 
 .nav-logo {
-  display: block;
-  margin: 5px 0;
-  /* DO NOT TOUCH height or width */
-  transition: transform 0.3s ease, filter 0.3s ease;
+  height: 60px; /* original size */
+  width: 1920px;
   cursor: pointer;
+  transition: transform 0.3s ease;
 }
 
 .nav-logo:hover {
   transform: scale(1.1);
-  filter: brightness(1.1);
 }
 
-/* LOGO BAR */
+/* Logo track / company bar */
 .logo-bar {
   overflow: hidden;
   background: #f4f6f5;
@@ -172,13 +170,14 @@ body {
 
 .logo-track {
   display: flex;
+  min-width: 200vw; /* full screen span */
   width: max-content;
   animation: scroll 20s linear infinite;
 }
 
 .logo-track img {
-  height: 60px;
-  margin: 0 60px;
+  height: 60px; /* keep original logo size */
+  margin: 0 60px; /* spacing preserved */
   transition: transform 0.3s ease, filter 0.3s ease;
   cursor: pointer;
 }
@@ -213,3 +212,4 @@ section h2, section p {
   .btn-primary { padding: 12px 20px; font-size: 1em; }
   .logo-track img { height: 40px; margin: 0 30px; }
 }
+
