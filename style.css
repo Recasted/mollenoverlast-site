@@ -227,6 +227,8 @@ section:not(.logo-bar) p {
   color: white;
   font-weight: 700;
   font-size: 1.8rem;
-  margin-top: 80px;
+  
+  margin-top: 35px;
   margin-bottom: 15px;
 }
+
