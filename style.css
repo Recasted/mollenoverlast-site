@@ -45,6 +45,10 @@ main {
   margin-bottom: 70px;
 }
 
+.hero-content h2 {
+  margin-bottom: 45px;
+}
+
 .hero-content p {
   margin-bottom: 25px;
   line-height: 1.7;
@@ -231,6 +235,7 @@ section:not(.logo-bar) p {
   margin-top: 35px;
   margin-bottom: 15px;
 }
+
 
 
 
