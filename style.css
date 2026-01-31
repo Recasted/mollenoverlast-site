@@ -42,7 +42,7 @@ main {
 }
 
 .hero-content h1 {
-  margin-bottom: 30px;
+  margin-bottom: 70px;
 }
 
 .hero-content p {
@@ -231,5 +231,6 @@ section:not(.logo-bar) p {
   margin-top: 35px;
   margin-bottom: 15px;
 }
+
 
 
