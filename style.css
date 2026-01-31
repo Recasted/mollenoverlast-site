@@ -9,14 +9,24 @@ html, body {
   scroll-behavior: smooth;
 }
 
+/* Sticky footer layout so logo bar can sit at bottom */
 body {
   padding-top: 80px; /* header offset */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Let main content stretch and push footer/logo bar down */
+main {
+  flex: 1;
 }
 
 /* HERO */
 .hero {
   position: relative;
-  min-height: 100vh;
+  /* Fill viewport minus fixed header so footer can still sit at bottom nicely */
+  min-height: calc(100vh - 80px);
   background-color: #0f2f1f;
   display: flex;
   flex-direction: column;
@@ -40,8 +50,9 @@ body {
   line-height: 1.7;
 }
 
-/* BUTTON */
-.btn-primary {
+/* BUTTON (you use .cta-button in HTML, so style both) */
+.btn-primary,
+.cta-button {
   display: inline-block;
   margin-top: 20px;
   padding: 15px 25px;
@@ -52,7 +63,8 @@ body {
   transition: background 0.3s ease;
 }
 
-.btn-primary:hover {
+.btn-primary:hover,
+.cta-button:hover {
   background: #005fa3;
   cursor: pointer;
 }
@@ -140,18 +152,8 @@ body {
 }
 
 /* Logo centered */
-.nav-inner {
-  width: 100%;
-  max-width: 1200px;
-  display: flex;
-  justify-content: center; /* logo remains centered */
-  align-items: center;
-  padding: 0 20px;
-  box-sizing: border-box;
-}
-
 .nav-logo {
-  height: 60px; /* original size */
+  height: 60px;
   width: auto;
   max-width: 100%;
   cursor: pointer;
@@ -162,23 +164,27 @@ body {
   transform: scale(1.1);
 }
 
-/* Logo track / company bar */
+/* Logo track / company bar (full width + bottom) */
 .logo-bar {
+  width: 100%;
   overflow: hidden;
   background: #f4f6f5;
   padding: 30px 0;
+
+  /* This is the key that pushes it to the bottom on short pages */
+  margin-top: auto;
 }
 
 .logo-track {
   display: flex;
-  min-width: 200vw; /* full screen span */
   width: max-content;
   animation: scroll 20s linear infinite;
+  will-change: transform;
 }
 
 .logo-track img {
-  height: 60px; /* keep original logo size */
-  margin: 0 60px; /* spacing preserved */
+  height: 60px;
+  margin: 0 60px;
   transition: transform 0.3s ease, filter 0.3s ease;
   cursor: pointer;
 }
@@ -193,8 +199,9 @@ body {
   100% { transform: translateX(-50%); }
 }
 
-/* CONTENT SECTIONS */
-section {
+/* CONTENT SECTIONS
+   IMPORTANT: don't apply "max-width centered section" styling to logo-bar */
+section:not(.logo-bar) {
   position: relative;
   z-index: 1;
   padding: 80px 20px;
@@ -202,7 +209,8 @@ section {
   margin: 0 auto;
 }
 
-section h2, section p {
+section:not(.logo-bar) h2,
+section:not(.logo-bar) p {
   text-align: center;
 }
 
@@ -210,9 +218,6 @@ section h2, section p {
 @media (max-width: 768px) {
   .hero-content h1 { font-size: 2rem; }
   .hero-content p { font-size: 1rem; }
-  .btn-primary { padding: 12px 20px; font-size: 1em; }
+  .btn-primary, .cta-button { padding: 12px 20px; font-size: 1em; }
   .logo-track img { height: 40px; margin: 0 30px; }
 }
-
-
-
