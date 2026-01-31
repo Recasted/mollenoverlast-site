@@ -1,15 +1,20 @@
 const track = document.querySelector('.logo-track');
-track.innerHTML += track.innerHTML; // duplicate logos inside the track
+
+if (track) {
+  track.innerHTML += track.innerHTML;
+}
 
 const logo = document.querySelector('.logo-link');
 
-logo.addEventListener('click', function(e) {
-  e.preventDefault(); // prevent default anchor jump
-  window.scrollTo({
-    top: 0,
-    behavior: 'smooth' // smooth scroll animation
+if (logo) {
+  logo.addEventListener('click', function(e) {
+    e.preventDefault();
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
   });
-});
+}
 
 logo.addEventListener('click', function(e) {
   e.preventDefault();
@@ -39,3 +44,4 @@ hamburger.addEventListener('click', () => {
   hamburger.classList.toggle('active');
   menu.classList.toggle('active');
 });
+
