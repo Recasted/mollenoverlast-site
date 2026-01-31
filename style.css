@@ -152,6 +152,7 @@ body {
 
 .nav-logo {
   height: 60px; /* original size */
+  width: auto;
   max-width: 100%;
   cursor: pointer;
   transition: transform 0.3s ease;
@@ -212,5 +213,6 @@ section h2, section p {
   .btn-primary { padding: 12px 20px; font-size: 1em; }
   .logo-track img { height: 40px; margin: 0 30px; }
 }
+
 
 
