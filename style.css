@@ -221,3 +221,12 @@ section:not(.logo-bar) p {
   .btn-primary, .cta-button { padding: 12px 20px; font-size: 1em; }
   .logo-track img { height: 40px; margin: 0 30px; }
 }
+
+.client-section-title {
+  text-align: center;
+  color: white;
+  font-weight: 700;
+  font-size: 1.8rem;
+  margin-top: 80px;
+  margin-bottom: 15px;
+}
