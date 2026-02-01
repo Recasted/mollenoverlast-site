@@ -236,6 +236,23 @@ section:not(.logo-bar) p {
   margin-bottom: 15px;
 }
 
+.whatsapp-button {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 14px 22px;
+  background-color: #25D366; /* WhatsApp green */
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.whatsapp-button:hover {
+  background-color: #1ebe5d;
+  transform: scale(1.05);
+}
+
 
 
 
