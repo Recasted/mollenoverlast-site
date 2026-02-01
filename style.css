@@ -168,22 +168,18 @@ main {
   transform: scale(1.1);
 }
 
-
+/* ✅ LOGO BAR (FIXED) */
 .logo-bar {
   width: 100%;
   overflow: hidden;
   background: #f4f6f5;
   padding: 30px 0;
-  margin-top: 0;
-}
-
-}
-  /* This is the key that pushes it to the bottom on short pages */
-  margin-top: auto;
+  margin-top: auto; /* pushes it to the bottom on short pages */
 }
 
 .logo-track {
   display: flex;
+  align-items: center;
   width: max-content;
   animation: scroll 20s linear infinite;
   will-change: transform;
@@ -192,6 +188,7 @@ main {
 .logo-track img {
   height: 60px;
   margin: 0 60px;
+  flex: 0 0 auto; /* prevents odd wrapping/shrinking */
   transition: transform 0.3s ease, filter 0.3s ease;
   cursor: pointer;
 }
@@ -234,7 +231,6 @@ section:not(.logo-bar) p {
   color: white;
   font-weight: 700;
   font-size: 1.8rem;
-  
   margin-top: 35px;
   margin-bottom: 15px;
 }
@@ -269,12 +265,13 @@ section:not(.logo-bar) p {
   align-self: flex-start;    /* bottom-left */
   padding-left: 14px;        /* same left spacing vibe */
   padding-bottom: 14px;      /* gives breathing room */
-  
+
   font-family: "Courier New", monospace;
   font-size: 0.9rem;
   color: rgba(255, 255, 255, 0.9);
   line-height: 1.4;
 }
+
 /* --- FORCE company-info to NOT overlap the logo bar --- */
 
 /* make the contact hero a flex column */
@@ -296,7 +293,6 @@ section:not(.logo-bar) p {
 .whatsapp-button{
   margin: 12px 0 6px;     /* less space below WhatsApp */
 }
-
 
 .hero {
   padding-bottom: 25px;
@@ -428,6 +424,3 @@ section:not(.logo-bar) p {
     opacity: 0;
   }
 }
-
-
-
