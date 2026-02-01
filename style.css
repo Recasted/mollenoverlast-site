@@ -174,7 +174,8 @@ main {
   overflow: hidden;
   background: #f4f6f5;
   padding: 30px 0;
-
+  margin-top: 0; /* IMPORTANT */
+}
   /* This is the key that pushes it to the bottom on short pages */
   margin-top: auto;
 }
@@ -301,6 +302,7 @@ section:not(.logo-bar) p {
 .hero {
   padding-bottom: 25px;
 }
+
 
 
 
