@@ -285,6 +285,20 @@ section:not(.logo-bar) p {
   width: 100%;
 }
 
+/* --- CONTACT PAGE: tighten spacing inside hero --- */
+.hero-content p{
+  margin: 6px 0;          /* reduce default paragraph gaps */
+}
+
+.whatsapp-button{
+  margin: 12px 0 6px;     /* less space below WhatsApp */
+}
+
+.company-info{
+  margin-top: 6px;        /* pulls KvK block closer */
+}
+
+
 
 
 
