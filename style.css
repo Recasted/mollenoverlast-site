@@ -272,6 +272,38 @@ section:not(.logo-bar) p {
   color: rgba(255, 255, 255, 0.9);
   line-height: 1.4;
 }
+/* --- FORCE company-info to NOT overlap the logo bar --- */
+
+/* make the contact hero a flex column */
+.hero.hero-contact {
+  display: flex;
+  flex-direction: column;
+}
+
+/* make hero-content take normal space at the top */
+.hero.hero-contact .hero-content {
+  width: 100%;
+}
+
+/* FORCE company-info back into normal flow (no absolute/fixed) */
+.hero.hero-contact .company-info {
+  position: static !important;   /* overrides any absolute/fixed */
+  margin-top: auto;              /* pushes it to bottom inside hero */
+  align-self: flex-start;        /* bottom-left */
+  padding: 14px;
+
+  font-family: "Courier New", monospace;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.4;
+}
+
+/* ensure logo bar always renders above if anything weird happens */
+.logo-bar {
+  position: relative;
+  z-index: 10;
+}
+
 
 
 
