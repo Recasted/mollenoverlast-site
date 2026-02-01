@@ -374,5 +374,60 @@ section:not(.logo-bar) p {
   }
 }
 
+/* --- WhatsApp button particle animation --- */
+.whatsapp-button {
+  position: relative;
+  overflow: hidden; /* contain particles */
+}
+
+/* particles */
+.whatsapp-button::before,
+.whatsapp-button::after {
+  content: "";
+  position: absolute;
+  bottom: 10px;
+  width: 6px;
+  height: 6px;
+  background: #25D366;
+  border-radius: 50%;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* left particle */
+.whatsapp-button::before {
+  left: 35%;
+}
+
+/* right particle */
+.whatsapp-button::after {
+  left: 60%;
+}
+
+/* trigger animation on hover */
+.whatsapp-button:hover::before {
+  animation: wa-particle-up 1.2s ease-out infinite;
+}
+
+.whatsapp-button:hover::after {
+  animation: wa-particle-up 1.2s ease-out infinite;
+  animation-delay: 0.3s;
+}
+
+/* animation */
+@keyframes wa-particle-up {
+  0% {
+    transform: translateY(0) scale(0.6);
+    opacity: 0;
+  }
+  30% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-25px) scale(0.2);
+    opacity: 0;
+  }
+}
+
 
 
