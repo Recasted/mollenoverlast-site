@@ -372,6 +372,38 @@ section:not(.logo-bar) p {
   }
 }
 
+/* --- FORCE logo bar to be a single horizontal scrolling row --- */
+.logo-bar {
+  overflow: hidden !important;
+  width: 100% !important;
+}
+
+.logo-track {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  align-items: center !important;
+  width: max-content !important;
+  will-change: transform !important;
+  animation: logoScroll 20s linear infinite !important;
+}
+
+.logo-track a {
+  display: inline-flex !important;
+  align-items: center !important;
+  flex: 0 0 auto !important;
+}
+
+.logo-track img {
+  display: block !important;
+  flex: 0 0 auto !important;
+}
+
+/* Use a fresh keyframe name so nothing else can override it */
+@keyframes logoScroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
 
 
 
