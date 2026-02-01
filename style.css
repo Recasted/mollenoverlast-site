@@ -295,13 +295,11 @@ section:not(.logo-bar) p {
   margin: 12px 0 6px;     /* less space below WhatsApp */
 }
 
-.company-info{
-  margin-top: 35px;        /* pulls KvK block closer */
-}
 
 .hero {
   padding-bottom: 25px;
 }
+
 
 
 
