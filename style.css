@@ -253,19 +253,26 @@ section:not(.logo-bar) p {
   transform: scale(1.05);
 }
 
-/* Company info – contact page only */
-.company-info {
-  position: fixed;
-  bottom: 10px;
-  left: 10px;
-
-  font-family: "Courier New", monospace; /* different font */
-  font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.85);
-
-  line-height: 1.4;
-  z-index: 50;
+/* Contact hero becomes a column where bottom content can sit at the bottom */
+.hero-contact {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* top content stays at top */
 }
+
+/* This pushes the company info to the bottom INSIDE the hero */
+.company-info {
+  margin-top: auto;          /* <-- key: pushes it down */
+  align-self: flex-start;    /* bottom-left */
+  padding-left: 14px;        /* same left spacing vibe */
+  padding-bottom: 14px;      /* gives breathing room */
+  
+  font-family: "Courier New", monospace;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.4;
+}
+
 
 
 
