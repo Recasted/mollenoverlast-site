@@ -30,37 +30,65 @@ main, .logo-bar {
 }
 main:focus { outline: none; }
 
-/* Contour lines fade into the green behind each section. */
-main::before, .logo-bar::before {
-  content: "";
+/* The sweep is masked to the same paths as the static contour lines. */
+@property --contour-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 125deg;
+}
+main, .logo-bar {
+  --contour-size: 42% 68%;
+  --contour-origin: 94% -18%;
+  --contour-fade: linear-gradient(115deg, transparent 24%, #000 72%);
+  --contour-edge: linear-gradient(#000 65%, transparent);
+}
+.logo-bar {
+  --contour-size: 33rem 18rem;
+  --contour-origin: 94% -75%;
+  --contour-edge: linear-gradient(#000, #000);
+}
+main::before, main::after, .logo-bar::before, .logo-bar::after {
+  --contour-lines: repeating-radial-gradient(
+    ellipse var(--contour-size) at var(--contour-origin),
+    transparent 0 24px, var(--contour-ink) 25px 26px, transparent 27px 31px
+  );
   position: absolute;
   inset: 0 0 auto;
   z-index: -1;
   height: min(100%, 31rem);
   pointer-events: none;
-  background:
-    radial-gradient(ellipse at 95% 25%, #9ab65a29, transparent 62%),
-    repeating-radial-gradient(ellipse 42% 68% at 94% -18%,
-      transparent 0 24px, #b8cf812a 25px 26px, transparent 27px 31px);
-  mask-image: var(--contour-fade, linear-gradient(115deg, transparent 24%, #000 72%));
 }
-main::before {
-  mask-image:
-    var(--contour-fade, linear-gradient(115deg, transparent 24%, #000 72%)),
-    linear-gradient(#000 65%, transparent);
+main::before, .logo-bar::before {
+  --contour-ink: #bc85cf52;
+  content: "";
+  background: radial-gradient(ellipse at 95% 25%, #70296336, transparent 62%), var(--contour-lines);
+  mask-image: var(--contour-fade), var(--contour-edge);
   mask-composite: intersect;
 }
-.logo-bar::before {
+.logo-bar::before, .logo-bar::after {
   height: 100%;
-  background:
-    radial-gradient(ellipse at 95% 25%, #9ab65a29, transparent 62%),
-    repeating-radial-gradient(ellipse 33rem 18rem at 94% -75%,
-      transparent 0 24px, #b8cf812a 25px 26px, transparent 27px 31px);
   transform: scale(-1);
-  opacity: .7;
+  opacity: .8;
+}
+@media (prefers-reduced-motion: no-preference) {
+  @supports (mask-composite: intersect) {
+    main::after, .logo-bar::after {
+      --contour-ink: #000;
+      content: "";
+      background: conic-gradient(from var(--contour-angle) at var(--contour-origin),
+        transparent, #e3a9fa20 8deg, #e3a9fab3 20deg, #d297ed42 33deg, transparent 53deg);
+      mask-image: var(--contour-lines), var(--contour-fade), var(--contour-edge);
+      mask-composite: intersect;
+      animation: contour-sweep 12s linear infinite;
+    }
+    .logo-bar::after { animation-delay: -2s; }
+  }
+}
+@keyframes contour-sweep {
+  to { --contour-angle: 485deg; }
 }
 @media (max-width: 760px) {
-  main::before, .logo-bar::before {
+  main, .logo-bar {
     --contour-fade: linear-gradient(130deg, transparent 38%, #000 100%);
   }
 }
