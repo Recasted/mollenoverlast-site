@@ -87,3 +87,28 @@ if ("IntersectionObserver" in window && !reducedMotion.matches) {
 
   document.querySelectorAll("[data-reveal]").forEach((element) => reveal.observe(element));
 }
+
+const intro = document.querySelector(".home-hero, .page-intro");
+const main = document.querySelector("main");
+const glowAllowed = matchMedia("(hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)");
+let glowFrame;
+
+intro.addEventListener("pointermove", (event) => {
+  if (!glowAllowed.matches || event.pointerType !== "mouse") return;
+
+  cancelAnimationFrame(glowFrame);
+  glowFrame = requestAnimationFrame(() => {
+    const bounds = main.getBoundingClientRect();
+    main.style.setProperty("--glow-x", `${event.clientX - bounds.left}px`);
+    main.style.setProperty("--glow-y", `${event.clientY - bounds.top}px`);
+    main.classList.add("has-pointer-glow");
+  });
+});
+
+function clearPointerGlow() {
+  cancelAnimationFrame(glowFrame);
+  main.classList.remove("has-pointer-glow");
+}
+
+intro.addEventListener("pointerleave", clearPointerGlow);
+glowAllowed.addEventListener("change", clearPointerGlow);

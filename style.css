@@ -24,7 +24,27 @@ a { color: inherit; text-underline-offset: 0.2em; }
 button { font: inherit; cursor: pointer; }
 [hidden] { display: none !important; }
 :focus-visible { outline: 2px solid #8a9f39; outline-offset: 4px; }
+main {
+  position: relative;
+  isolation: isolate;
+  background:
+    radial-gradient(ellipse 48rem 25rem at 88% 0, #abc66a14, transparent),
+    repeating-linear-gradient(125deg, transparent 0 15px, #cddd8306 15px 16px);
+}
 main:focus { outline: none; }
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  main::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background: radial-gradient(24rem circle at var(--glow-x, 50%) var(--glow-y, 0), #cddd831a, transparent);
+    opacity: 0;
+    transition: opacity .24s ease;
+  }
+  main.has-pointer-glow::before { opacity: 1; }
+}
 h1, h2 {
   margin: 0;
   font-family: Georgia, serif;
@@ -141,12 +161,11 @@ dl, dd { margin: 0; }
   border-radius: 3px;
   font-weight: 700;
   text-decoration: none;
-  transition: background .2s ease, border-color .2s ease, transform .2s ease;
+  transition: background .2s ease, border-color .2s ease, box-shadow .2s ease, transform .2s ease;
 }
 .primary { background: var(--green); color: var(--deep); }
-.primary:hover { background: #deebaa; transform: translateY(-2px); }
 .secondary { border-color: #829885; }
-.secondary:hover { background: #ffffff12; border-color: #d4e2c6; }
+
 .method-band, .paper { background: var(--paper); color: var(--ink); border-top: 1px solid var(--line); }
 .method {
   display: grid;
@@ -168,6 +187,14 @@ dl, dd { margin: 0; }
 .trap-photo img { height: 250px; object-fit: contain; }
 .more { display: inline-flex; gap: .6rem; font-weight: 700; }
 .more:hover { color: #49612b; }
+@media (hover: hover) {
+  .primary:hover { background: #deebaa; box-shadow: 0 4px 14px #091f2033; transform: translateY(-2px); }
+  .secondary:hover { background: #ffffff12; border-color: #d4e2c6; transform: translateY(-2px); }
+  .more span { transition: transform .2s ease; }
+  .more:hover span { transform: translateX(3px); }
+  .logo-group a { transition: background .2s ease; }
+  .logo-group a:hover { background: #eff3e5; }
+}
 
 /* Interior pages */
 .page-intro { padding-block: var(--space); }
