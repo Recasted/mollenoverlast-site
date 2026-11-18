@@ -28,8 +28,8 @@ main {
   position: relative;
   isolation: isolate;
   background:
-    radial-gradient(ellipse 48rem 25rem at 88% 0, #abc66a14, transparent),
-    repeating-linear-gradient(125deg, transparent 0 15px, #cddd8306 15px 16px);
+    radial-gradient(ellipse 48rem 25rem at 88% 0, #abc66a30, transparent),
+    repeating-linear-gradient(125deg, transparent 0 15px, #cddd8314 15px 16px);
 }
 main:focus { outline: none; }
 @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
@@ -39,7 +39,7 @@ main:focus { outline: none; }
     inset: 0;
     z-index: -1;
     pointer-events: none;
-    background: radial-gradient(24rem circle at var(--glow-x, 50%) var(--glow-y, 0), #cddd831a, transparent);
+    background: radial-gradient(27rem circle at var(--glow-x, 50%) var(--glow-y, 0), #cddd8352, transparent);
     opacity: 0;
     transition: opacity .24s ease;
   }
@@ -188,8 +188,8 @@ dl, dd { margin: 0; }
 .more { display: inline-flex; gap: .6rem; font-weight: 700; }
 .more:hover { color: #49612b; }
 @media (hover: hover) {
-  .primary:hover { background: #deebaa; box-shadow: 0 4px 14px #091f2033; transform: translateY(-2px); }
-  .secondary:hover { background: #ffffff12; border-color: #d4e2c6; transform: translateY(-2px); }
+  .primary:hover { background: #deebaa; box-shadow: 0 6px 18px #091f2066; transform: translateY(-3px); }
+  .secondary:hover { background: #ffffff12; border-color: #d4e2c6; transform: translateY(-3px); }
   .more span { transition: transform .2s ease; }
   .more:hover span { transform: translateX(3px); }
   .logo-group a { transition: background .2s ease; }
