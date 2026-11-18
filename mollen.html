@@ -1,111 +1,83 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="nl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mollenoverlast | Informatie over mollen</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Lees meer over de Europese mol en de schade die molshopen en mollengangen aan gazons en grasland kunnen veroorzaken.">
+  <meta name="theme-color" content="#0f2f1f">
+  <title>Informatie over mollen | Mollenoverlast</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="assets/images/mollenoverlastpng.png" type="image/png">
+  <script src="script.js" defer></script>
 </head>
-<body>
-  <!-- Top header -->
-  <nav class="top-header">
-    <div class="hamburger-container">
-      <div class="hamburger" id="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-      <div class="menu" id="menu">
-        <a href="index.html">Home</a>
-        <a href="wie.html">Wie zijn we?</a>
-        <a href="mollen.html">Informatie over mollen</a>
-        <a href="contact.html">Contact</a>
-      </div>
-    </div>
-    <a href="index.html" class="logo-link">
-      <img src="assets/images/mollenoverlastpng.png" alt="Mollenoverlast" class="nav-logo">
+<body id="boven">
+  <a class="skip-link" href="#inhoud">Direct naar inhoud</a>
+  <header class="top-header">
+    <button class="hamburger" type="button" aria-controls="menu" aria-expanded="false" hidden>
+      <span class="menu-icon" aria-hidden="true"><span></span><span></span><span></span></span>
+      <span>Menu</span>
+    </button>
+    <nav class="menu" id="menu" aria-label="Hoofdnavigatie">
+      <a href="index.html">Home</a>
+      <a href="wie.html">Wie zijn we?</a>
+      <a href="mollen.html" aria-current="page">Informatie over mollen</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <a href="#boven" class="logo-link" aria-label="Mollenoverlast, naar boven">
+      <img src="assets/images/mollenoverlastpng.png" alt="Mollenoverlast" width="122" height="138" class="nav-logo">
     </a>
-  </nav>
-
-  <!-- Hero section -->
-  <header class="hero">
-    <div class="hero-content">
-      <h1>Informatie over mollen</h1>
-      <h2>De mol</h2>
-      <p>De in Nederland voorkomende mol is de Talpa Europea.
-Deze mol heeft krachtige, naar buiten gedraaide klauwen die verbreed zijn met een extra vinger. Het lichaam is klein en gedrongen, met een kleine kop, spitse snuit en korte staart. Een volwassen mol kan ongeveer 17 centimeter lang worden, met een staart van 4 centimeter. De Talpa europaea graaft met een snelheid van 5 meter per uur, waardoor hij snel en gemakkelijk schade kan aanrichten.
-</p>
-      <h2>Schade</h2>
-      <p>De meest voorkomende schade door mollen is het vernielen van de graszode. Door hun gegraaf raken graswortels los, waardoor het gras uitdroogt. Op de kale plekken die zo ontstaan, krijgt onkruid gemakkelijk de kans om te groeien. Ook in borders rondom grasvelden kunnen mollen de beplanting loswoelen.
-</p>
-      <p></p>
-      <p></p>
-      <p>Daarnaast veroorzaakt het opgeworpen zand van mollenbulten problemen bij het maaien van percelen. Bovendien kan het zand zorgen voor een verhoogd asgehalte in het gemaaide gras, wat bij veeboeren leidt tot een te hoog boterzuurbacteriegehalte in de melk van de koe, iets dat een negatief effect heeft op de kwaliteit van de melk.</p>
-    </div>
+    <a class="header-contact particle-link" href="contact.html">Contact <span class="arrow-up" aria-hidden="true"></span></a>
   </header>
 
-  <!-- Logo bar -->
-</div>
-</header>
- 
-<section class="logo-bar">
-  <div class="logo-track">
+  <main id="inhoud" tabindex="-1">
+    <article>
+      <header class="wrap page-intro">
+        <h1>Informatie over mollen</h1>
+        <p class="lead">De Europese mol en de schade die hij kan veroorzaken aan gazons en grasland.</p>
+      </header>
 
-    <a href="https://www.avebe.nl" target="_blank" rel="noopener noreferrer">
-      <img src="assets/companies/Avebelogo.png" alt="Avebe">
-    </a>
+      <div class="paper">
+        <div class="wrap section-space article-layout">
+          <nav class="article-nav" aria-label="Op deze pagina">
+            <p>Op deze pagina</p>
+            <a href="#de-mol">De mol</a>
+            <a href="#schade">Schade</a>
+          </nav>
+          <div class="article-copy">
+            <section aria-labelledby="de-mol">
+              <h2 id="de-mol">De mol</h2>
+              <p>De in Nederland voorkomende mol is de <i>Talpa europaea</i>. Deze mol heeft krachtige, naar buiten gedraaide klauwen die verbreed zijn met een extra vinger. Het lichaam is klein en gedrongen, met een kleine kop, spitse snuit en korte staart.</p>
+              <p>Een volwassen mol kan ongeveer 17 centimeter lang worden, met een staart van 4 centimeter. De <i>Talpa europaea</i> graaft met een snelheid van 5 meter per uur, waardoor hij snel en gemakkelijk schade kan aanrichten.</p>
+            </section>
+            <section aria-labelledby="schade">
+              <h2 id="schade">Schade</h2>
+              <p>De meest voorkomende schade door mollen is het vernielen van de graszode. Door hun gegraaf raken graswortels los, waardoor het gras uitdroogt. Op de kale plekken die zo ontstaan, krijgt onkruid gemakkelijk de kans om te groeien. Ook in borders rondom grasvelden kunnen mollen de beplanting loswoelen.</p>
+              <p>Daarnaast veroorzaakt het opgeworpen zand van mollenbulten problemen bij het maaien van percelen. Bovendien kan het zand zorgen voor een verhoogd asgehalte in het gemaaide gras, wat bij veeboeren leidt tot een te hoog boterzuurbacteriegehalte in de melk van de koe, iets dat een negatief effect heeft op de kwaliteit van de melk.</p>
+              <a class="more" href="contact.html">Neem contact op <span aria-hidden="true">→</span></a>
+            </section>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
 
-    <a href="https://gemeente.emmen.nl" target="_blank" rel="noopener noreferrer">
-      <img src="assets/companies/emmenlogo.jpg" alt="Gemeente Emmen">
-    </a>
-
-    <a href="https://www.landal.nl" target="_blank" rel="noopener noreferrer">
-      <img src="assets/companies/landallogo.jpg" alt="Landal">
-    </a>
-
-    <a href="https://www.defensie.nl/organisatie/landmacht" target="_blank" rel="noopener noreferrer">
-      <img src="assets/companies/landmachtlogo.jpg" alt="Landmacht">
-    </a>  
-
-    <a href="https://www.defensie.nl/organisatie/luchtmacht" target="_blank" rel="noopener noreferrer">
-      <img src="assets/companies/luchtmacht.png" alt="Luchtmacht">
-    </a>
-
-    <a href="https://www.crematoriumdemeerdijk.nl" target="_blank" rel="noopener noreferrer">
-      <img src="assets/companies/cremator.jpg" alt="Crematorium De Meerdijk">
-    </a>
-  <a href="https://www.avebe.nl" target="_blank" rel="noopener noreferrer">
-      <img src="assets/companies/Avebelogo.png" alt="Avebe">
-    </a>
-
-    <a href="https://gemeente.emmen.nl" target="_blank" rel="noopener noreferrer">
-      <img src="assets/companies/emmenlogo.jpg" alt="Gemeente Emmen">
-    </a>
-
-    <a href="https://www.landal.nl" target="_blank" rel="noopener noreferrer">
-      <img src="assets/companies/landallogo.jpg" alt="Landal">
-    </a>
-
-    <a href="https://www.defensie.nl/organisatie/landmacht" target="_blank" rel="noopener noreferrer">
-      <img src="assets/companies/landmachtlogo.jpg" alt="Landmacht">
-    </a>
-
-    <a href="https://www.defensie.nl/organisatie/luchtmacht" target="_blank" rel="noopener noreferrer">
-      <img src="assets/companies/luchtmacht.png" alt="Luchtmacht">
-    </a>
-
-    <a href="https://www.crematoriumdemeerdijk.nl" target="_blank" rel="noopener noreferrer">
-      <img src="assets/companies/cremator.jpg" alt="Crematorium De Meerdijk">
-    </a>
-  </div>
-</section>
-
-
-  <script src="script.js"></script>
+  <footer class="logo-bar" aria-labelledby="vertrouwen">
+    <div class="wrap logo-heading">
+      <h2 id="vertrouwen">Bedrijven die ons vertrouwen</h2>
+      <button class="logo-toggle" type="button" hidden>Pauzeren</button>
+    </div>
+    <div class="logo-window">
+      <div class="logo-track">
+        <div class="logo-group">
+          <a href="https://www.avebe.nl" target="_blank" rel="noopener noreferrer"><img src="assets/companies/Avebelogo.png" alt="Avebe"></a>
+          <a href="https://gemeente.emmen.nl" target="_blank" rel="noopener noreferrer"><img src="assets/companies/emmenlogo.jpg" alt="Gemeente Emmen"></a>
+          <a href="https://www.landal.nl" target="_blank" rel="noopener noreferrer"><img src="assets/companies/landallogo.jpg" alt="Landal"></a>
+          <a href="https://www.defensie.nl/defensieonderdelen/koninklijke-landmacht" target="_blank" rel="noopener noreferrer"><img src="assets/companies/landmachtlogo.jpg" alt="Landmacht"></a>
+          <a href="https://www.defensie.nl/defensieonderdelen/koninklijke-luchtmacht" target="_blank" rel="noopener noreferrer"><img src="assets/companies/luchtmacht.png" alt="Luchtmacht"></a>
+          <a href="https://www.crematoriumdemeerdijk.nl" target="_blank" rel="noopener noreferrer"><img src="assets/companies/cremator.jpg" alt="Crematorium De Meerdijk"></a>
+        </div>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
-
-
-
-
-

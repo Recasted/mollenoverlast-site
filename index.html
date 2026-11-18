@@ -1,119 +1,79 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="nl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mollenoverlast | Home</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Professionele mollenbestrijding voor uw gazon of grasland. Mollenoverlast uit Schoonebeek werkt met de Yankee-klem.">
+  <meta name="theme-color" content="#0f2f1f">
+  <title>Professionele mollenbestrijding | Mollenoverlast</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="assets/images/mollenoverlastpng.png" type="image/png">
+  <script src="script.js" defer></script>
 </head>
-
-<body>
-
-<!-- NAVBAR -->
-<nav class="top-header">
-  <div class="hamburger-container">
-    <div class="hamburger" id="hamburger">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-
-    <div class="menu" id="menu">
-      <a href="index.html">Home</a>
+<body id="boven">
+  <a class="skip-link" href="#inhoud">Direct naar inhoud</a>
+  <header class="top-header">
+    <button class="hamburger" type="button" aria-controls="menu" aria-expanded="false" hidden>
+      <span class="menu-icon" aria-hidden="true"><span></span><span></span><span></span></span>
+      <span>Menu</span>
+    </button>
+    <nav class="menu" id="menu" aria-label="Hoofdnavigatie">
+      <a href="index.html" aria-current="page">Home</a>
       <a href="wie.html">Wie zijn we?</a>
       <a href="mollen.html">Informatie over mollen</a>
       <a href="contact.html">Contact</a>
+    </nav>
+    <a href="#boven" class="logo-link" aria-label="Mollenoverlast, naar boven">
+      <img src="assets/images/mollenoverlastpng.png" alt="Mollenoverlast" width="122" height="138" class="nav-logo">
+    </a>
+    <a class="header-contact particle-link" href="contact.html">Contact <span class="arrow-up" aria-hidden="true"></span></a>
+  </header>
+
+  <main id="inhoud" tabindex="-1">
+    <header class="wrap home-hero">
+      <p class="eyebrow">Professionele mollenbestrijding</p>
+      <h1>Last van mollen?</h1>
+      <p class="lead">Wij maken en houden uw gazon of grasland molvrij met de Yankee-klem.</p>
+      <div class="actions">
+        <a class="button primary particle-link" href="contact.html">Neem contact op</a>
+        <a class="button secondary particle-link" href="tel:+31643845760">Bel 06 4384 5760</a>
+      </div>
+    </header>
+
+    <section class="method-band" aria-labelledby="methode">
+      <div class="wrap method" data-reveal>
+        <div class="trap-photo">
+          <img src="assets/images/klem1.jpg" alt="De Yankee-mollenklem" width="143" height="250" loading="lazy">
+        </div>
+        <div>
+          <p class="eyebrow">Onze werkwijze</p>
+          <h2 id="methode">De Yankee-klem</h2>
+          <p>Om uw gazon of grasland molvrij te maken of te houden, gebruiken wij de Yankee-klem, de meest effectieve mollenklem. We plaatsen de klemmen zorgvuldig in de gangen die de mol heeft gegraven.</p>
+          <p>Wanneer de mol door de gang loopt, klapt de klem direct dicht, waardoor de mol op slag dood is. Bij Mollenoverlast werken we uitsluitend met deze methode, omdat die doeltreffend en zo humaan mogelijk is.</p>
+          <p><strong>Zo biedt Mollenoverlast u altijd een échte oplossing!</strong></p>
+          <a class="more" href="mollen.html">Lees meer over mollen <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="logo-bar" aria-labelledby="vertrouwen">
+    <div class="wrap logo-heading">
+      <h2 id="vertrouwen">Bedrijven die ons vertrouwen</h2>
+      <button class="logo-toggle" type="button" hidden>Pauzeren</button>
     </div>
-  </div>
-
-  <a href="#" class="logo-link">
-    <img src="assets/images/mollenoverlastpng.png"
-         alt="Mollenoverlast"
-         class="nav-logo">
-  </a>
-</nav>
-
-
-<!-- HERO -->
-<header class="hero">
-  <div class="hero-content">
-    <h1>Last van mollen?</h1>
-    <p>Om uw gazon of grasland molvrij te maken of te houden, gebruiken wij de Yankee klem, de meest effectieve mollenklem. Deze worden zorgvuldig geplaatst in de gangen die de mol heeft gegraven. Wanneer de mol door de gang loopt, klapt de klem direct dicht, waardoor de mol op slag dood is.
-Bij Mollenoverlast werken we uitsluitend met deze methode, omdat deze doeltreffend en zo humaan mogelijk is.
-
-</p>
-    <br>
-    <br>
-    <p>Zo biedt Mollenoverlast u altijd een échte oplossing!</p>
-
-    <a href="contact.html" class="cta-button">
-      Neem contact op
-    </a>
-  </div>
-</header>
-
-
-<!-- LOGO BAR (ONLY ONE!) -->
-  
-<section class="logo-bar">
-  <div class="logo-track">
-
-    <a href="https://www.avebe.nl" target="_blank" rel="noopener noreferrer">
-      <img src="assets/companies/Avebelogo.png" alt="Avebe">
-    </a>
-
-    <a href="https://gemeente.emmen.nl" target="_blank" rel="noopener noreferrer">
-      <img src="assets/companies/emmenlogo.jpg" alt="Gemeente Emmen">
-    </a>
-
-    <a href="https://www.landal.nl" target="_blank" rel="noopener noreferrer">
-      <img src="assets/companies/landallogo.jpg" alt="Landal">
-    </a>
-
-    <a href="https://www.defensie.nl/organisatie/landmacht" target="_blank" rel="noopener noreferrer">
-      <img src="assets/companies/landmachtlogo.jpg" alt="Landmacht">
-    </a>
-
-    <a href="https://www.defensie.nl/organisatie/luchtmacht" target="_blank" rel="noopener noreferrer">
-      <img src="assets/companies/luchtmacht.png" alt="Luchtmacht">
-    </a>
-
-    <a href="https://www.crematoriumdemeerdijk.nl" target="_blank" rel="noopener noreferrer">
-      <img src="assets/companies/cremator.jpg" alt="Crematorium De Meerdijk">
-    </a>
-  <a href="https://www.avebe.nl" target="_blank" rel="noopener noreferrer">
-      <img src="assets/companies/Avebelogo.png" alt="Avebe">
-    </a>
-
-    <a href="https://gemeente.emmen.nl" target="_blank" rel="noopener noreferrer">
-      <img src="assets/companies/emmenlogo.jpg" alt="Gemeente Emmen">
-    </a>
-
-    <a href="https://www.landal.nl" target="_blank" rel="noopener noreferrer">
-      <img src="assets/companies/landallogo.jpg" alt="Landal">
-    </a>
-
-    <a href="https://www.defensie.nl/organisatie/landmacht" target="_blank" rel="noopener noreferrer">
-      <img src="assets/companies/landmachtlogo.jpg" alt="Landmacht">
-    </a>
-
-    <a href="https://www.defensie.nl/organisatie/luchtmacht" target="_blank" rel="noopener noreferrer">
-      <img src="assets/companies/luchtmacht.png" alt="Luchtmacht">
-    </a>
-
-    <a href="https://www.crematoriumdemeerdijk.nl" target="_blank" rel="noopener noreferrer">
-      <img src="assets/companies/cremator.jpg" alt="Crematorium De Meerdijk">
-    </a>
-  </div>
-</section>
-
-
-<script src="script.js"></script>
-
+    <div class="logo-window">
+      <div class="logo-track">
+        <div class="logo-group">
+          <a href="https://www.avebe.nl" target="_blank" rel="noopener noreferrer"><img src="assets/companies/Avebelogo.png" alt="Avebe"></a>
+          <a href="https://gemeente.emmen.nl" target="_blank" rel="noopener noreferrer"><img src="assets/companies/emmenlogo.jpg" alt="Gemeente Emmen"></a>
+          <a href="https://www.landal.nl" target="_blank" rel="noopener noreferrer"><img src="assets/companies/landallogo.jpg" alt="Landal"></a>
+          <a href="https://www.defensie.nl/defensieonderdelen/koninklijke-landmacht" target="_blank" rel="noopener noreferrer"><img src="assets/companies/landmachtlogo.jpg" alt="Landmacht"></a>
+          <a href="https://www.defensie.nl/defensieonderdelen/koninklijke-luchtmacht" target="_blank" rel="noopener noreferrer"><img src="assets/companies/luchtmacht.png" alt="Luchtmacht"></a>
+          <a href="https://www.crematoriumdemeerdijk.nl" target="_blank" rel="noopener noreferrer"><img src="assets/companies/cremator.jpg" alt="Crematorium De Meerdijk"></a>
+        </div>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
-
-
-
-
-

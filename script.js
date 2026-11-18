@@ -1,72 +1,89 @@
-document.addEventListener("DOMContentLoaded", () => {
-  // ----------------------------
-  // 1) Logo bar: infinite scroll
-  // ----------------------------
-  const track = document.querySelector(".logo-track");
+const hamburger = document.querySelector(".hamburger");
+const menu = document.querySelector(".menu");
 
-  if (track) {
-    // Prevent re-duplicating if script runs again (hot reload / bfcache / etc.)
-    if (!track.dataset.duplicated) {
-      track.innerHTML += track.innerHTML;
-      track.dataset.duplicated = "true";
-    }
-  }
+function setMenu(open) {
+  hamburger.setAttribute("aria-expanded", String(open));
+  menu.classList.toggle("is-open", open);
+  menu.inert = !open;
+}
 
-  // ------------------------------------
-  // 2) Header logo: smooth scroll to top
-  // ------------------------------------
-  const logoLink = document.querySelector(".logo-link");
+menu.classList.add("is-disclosure");
+setMenu(false);
+hamburger.hidden = false;
 
-  if (logoLink) {
-    logoLink.addEventListener("click", (e) => {
-      e.preventDefault();
+hamburger.addEventListener("click", () => {
+  setMenu(hamburger.getAttribute("aria-expanded") === "false");
+});
 
-      // If already at top, do nothing
-      if (window.scrollY <= 0) return;
-
-      // Smooth, non-snappy scroll
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    });
-  }
-
-  // ----------------------------
-  // 3) Hamburger menu
-  // ----------------------------
-  const hamburger = document.getElementById("hamburger");
-  const menu = document.getElementById("menu");
-
-  const closeMenu = () => {
-    hamburger?.classList.remove("active");
-    menu?.classList.remove("active");
-  };
-
-  const toggleMenu = () => {
-    hamburger.classList.toggle("active");
-    menu.classList.toggle("active");
-  };
-
-  if (hamburger && menu) {
-    hamburger.addEventListener("click", (e) => {
-      e.stopPropagation(); // don't trigger outside-click close
-      toggleMenu();
-    });
-
-    // Close menu when a link is clicked
-    menu.addEventListener("click", (e) => {
-      const link = e.target.closest("a");
-      if (link) closeMenu();
-    });
-
-    // Close menu when clicking outside
-    document.addEventListener("click", (e) => {
-      const clickedInsideMenu =
-        menu.contains(e.target) || hamburger.contains(e.target);
-      if (!clickedInsideMenu) closeMenu();
-    });
-
-    // Close menu on Escape key
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") closeMenu();
-    });
+document.addEventListener("click", (event) => {
+  if (!menu.contains(event.target) && !hamburger.contains(event.target)) {
+    setMenu(false);
   }
 });
+
+document.addEventListener("focusin", (event) => {
+  if (!menu.contains(event.target) && !hamburger.contains(event.target)) {
+    setMenu(false);
+  }
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && hamburger.getAttribute("aria-expanded") === "true") {
+    setMenu(false);
+    hamburger.focus();
+  }
+});
+
+menu.addEventListener("click", (event) => {
+  if (event.target.closest("a")) setMenu(false);
+});
+
+const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)");
+
+document.querySelector(".logo-link").addEventListener("click", (event) => {
+  event.preventDefault();
+  window.scrollTo({ top: 0, behavior: reducedMotion.matches ? "instant" : "smooth" });
+});
+
+const logoBar = document.querySelector(".logo-bar");
+const logoWindow = logoBar.querySelector(".logo-window");
+const logoTrack = logoBar.querySelector(".logo-track");
+const logoGroup = logoBar.querySelector(".logo-group");
+const logoToggle = logoBar.querySelector(".logo-toggle");
+const copy = logoGroup.cloneNode(true);
+copy.setAttribute("aria-hidden", "true");
+copy.querySelectorAll("a").forEach((link) => { link.tabIndex = -1; });
+logoTrack.append(copy);
+
+logoBar.classList.add("is-ready");
+logoToggle.hidden = false;
+
+logoToggle.addEventListener("click", () => {
+  const paused = logoBar.classList.toggle("is-paused");
+  logoToggle.textContent = paused ? "Afspelen" : "Pauzeren";
+});
+
+logoWindow.addEventListener("focusin", (event) => {
+  logoBar.classList.add("is-browsing");
+  event.target.scrollIntoView({ block: "nearest", inline: "nearest", behavior: "instant" });
+});
+
+logoWindow.addEventListener("focusout", (event) => {
+  if (!logoWindow.contains(event.relatedTarget)) {
+    logoBar.classList.remove("is-browsing");
+    if (!reducedMotion.matches) logoWindow.scrollLeft = 0;
+  }
+});
+
+if ("IntersectionObserver" in window && !reducedMotion.matches) {
+  const reveal = new IntersectionObserver((entries) => {
+    for (const entry of entries) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("revealed");
+        reveal.unobserve(entry.target);
+      }
+    }
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll("[data-reveal]").forEach((element) => reveal.observe(element));
+}

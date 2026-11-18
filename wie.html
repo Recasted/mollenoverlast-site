@@ -1,123 +1,74 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="nl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mollenoverlast | Wie?</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Maak kennis met Mollenoverlast en ontdek voor welke terreinen en klantsectoren wij mollen bestrijden.">
+  <meta name="theme-color" content="#0f2f1f">
+  <title>Wie zijn we? | Mollenoverlast</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="assets/images/mollenoverlastpng.png" type="image/png">
+  <script src="script.js" defer></script>
 </head>
-
-<body>
-
-  <!-- NAVBAR -->
-  <nav class="top-header">
-    <div class="hamburger-container">
-      <div class="hamburger" id="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-
-      <div class="menu" id="menu">
-        <a href="index.html">Home</a>
-        <a href="wie.html">Wie zijn we?</a>
-        <a href="mollen.html">Informatie over mollen</a>
-        <a href="contact.html">Contact</a>
-      </div>
-    </div>
-
-    <a href="#" class="logo-link">
-      <img src="assets/images/mollenoverlastpng.png" alt="Mollenoverlast" class="nav-logo">
+<body id="boven">
+  <a class="skip-link" href="#inhoud">Direct naar inhoud</a>
+  <header class="top-header">
+    <button class="hamburger" type="button" aria-controls="menu" aria-expanded="false" hidden>
+      <span class="menu-icon" aria-hidden="true"><span></span><span></span><span></span></span>
+      <span>Menu</span>
+    </button>
+    <nav class="menu" id="menu" aria-label="Hoofdnavigatie">
+      <a href="index.html">Home</a>
+      <a href="wie.html" aria-current="page">Wie zijn we?</a>
+      <a href="mollen.html">Informatie over mollen</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <a href="#boven" class="logo-link" aria-label="Mollenoverlast, naar boven">
+      <img src="assets/images/mollenoverlastpng.png" alt="Mollenoverlast" width="122" height="138" class="nav-logo">
     </a>
-  </nav>
+    <a class="header-contact particle-link" href="contact.html">Contact <span class="arrow-up" aria-hidden="true"></span></a>
+  </header>
 
-  <!-- MAIN CONTENT (this is what pushes the logo bar down) -->
-  <main>
-    <header class="hero">
-      <div class="hero-content">
-        <!-- Zet hier je tekst -->
-        <h1>Wie zijn we?</h1>
-        <h2>Bij mollenoverlast hebben we meer dan 40 jaar ervaring in het bestrijden van mollen!</h2>
-
-        <p>Bij Mollenoverlast hebben we al vele klanten geholpen in verschillende sectoren. Of het nu gaat om particulieren, bedrijven of gemeenten, wij bieden een effectieve oplossing voor ieder type terrein. Hier zijn enkele van onze klantsectoren weergegeven
-        <p>‎Particulieren Voor een mollenvrije tuin,
-
-Boeren en tuinders Ter bescherming van gewassen en weilanden,
-
-Sportverenigingen Om sportvelden veilig en speelbaar te houden,
-
-Bedrijven en fabrieken Voor een nette en schadevrije buitenruimte,
-
-Hoveniers en groenbeheerders Als aanvulling op regulier onderhoud,
-
-Gemeenten en recreatieparken Voor het behoud van openbare en recreatieve terreinen.
-</p>
-        <p>‎</p>
-        
-      </div>
+  <main id="inhoud" tabindex="-1">
+    <header class="wrap page-intro">
+      <h1>Wie zijn we?</h1>
+      <p class="lead">Bij Mollenoverlast hebben we meer dan 40 jaar ervaring in het bestrijden van mollen.</p>
+      <p>We hebben al vele klanten geholpen in verschillende sectoren. Of het nu gaat om particulieren, bedrijven of gemeenten, wij bieden een effectieve oplossing voor ieder type terrein.</p>
     </header>
+
+    <section class="paper" aria-labelledby="sectoren">
+      <div class="wrap section-space" data-reveal>
+        <h2 id="sectoren">Voor wie we werken</h2>
+        <dl class="sectors">
+          <div><dt>Particulieren</dt><dd>Voor een mollenvrije tuin.</dd></div>
+          <div><dt>Boeren en tuinders</dt><dd>Ter bescherming van gewassen en weilanden.</dd></div>
+          <div><dt>Sportverenigingen</dt><dd>Om sportvelden veilig en speelbaar te houden.</dd></div>
+          <div><dt>Bedrijven en fabrieken</dt><dd>Voor een nette en schadevrije buitenruimte.</dd></div>
+          <div><dt>Hoveniers en groenbeheerders</dt><dd>Als aanvulling op regulier onderhoud.</dd></div>
+          <div><dt>Gemeenten en recreatieparken</dt><dd>Voor het behoud van openbare en recreatieve terreinen.</dd></div>
+        </dl>
+        <a class="button primary particle-link" href="contact.html">Neem contact op</a>
+      </div>
+    </section>
   </main>
 
-  <!-- LOGO BAR AT THE BOTTOM -->
-
-  <section class="logo-bar">
-    <div class="logo-track">
-
-      <a href="https://www.avebe.nl" target="_blank" rel="noopener noreferrer">
-        <img src="assets/companies/Avebelogo.png" alt="Avebe">
-      </a>
-
-      <a href="https://gemeente.emmen.nl" target="_blank" rel="noopener noreferrer">
-        <img src="assets/companies/emmenlogo.jpg" alt="Gemeente Emmen">
-      </a>
-
-      <a href="https://www.landal.nl" target="_blank" rel="noopener noreferrer">
-        <img src="assets/companies/landallogo.jpg" alt="Landal">
-      </a>
-
-      <a href="https://www.defensie.nl/organisatie/landmacht" target="_blank" rel="noopener noreferrer">
-        <img src="assets/companies/landmachtlogo.jpg" alt="Landmacht">
-      </a>
-
-      <a href="https://www.defensie.nl/organisatie/luchtmacht" target="_blank" rel="noopener noreferrer">
-        <img src="assets/companies/luchtmacht.png" alt="Luchtmacht">
-      </a>
-
-      <a href="https://www.crematoriumdemeerdijk.nl" target="_blank" rel="noopener noreferrer">
-        <img src="assets/companies/cremator.jpg" alt="Crematorium De Meerdijk">
-      </a>
-  <a href="https://www.avebe.nl" target="_blank" rel="noopener noreferrer">
-      <img src="assets/companies/Avebelogo.png" alt="Avebe">
-    </a>
-
-    <a href="https://gemeente.emmen.nl" target="_blank" rel="noopener noreferrer">
-      <img src="assets/companies/emmenlogo.jpg" alt="Gemeente Emmen">
-    </a>
-
-    <a href="https://www.landal.nl" target="_blank" rel="noopener noreferrer">
-      <img src="assets/companies/landallogo.jpg" alt="Landal">
-    </a>
-
-    <a href="https://www.defensie.nl/organisatie/landmacht" target="_blank" rel="noopener noreferrer">
-      <img src="assets/companies/landmachtlogo.jpg" alt="Landmacht">
-    </a>
-
-    <a href="https://www.defensie.nl/organisatie/luchtmacht" target="_blank" rel="noopener noreferrer">
-      <img src="assets/companies/luchtmacht.png" alt="Luchtmacht">
-    </a>
-
-    <a href="https://www.crematoriumdemeerdijk.nl" target="_blank" rel="noopener noreferrer">
-      <img src="assets/companies/cremator.jpg" alt="Crematorium De Meerdijk">
-    </a>
+  <footer class="logo-bar" aria-labelledby="vertrouwen">
+    <div class="wrap logo-heading">
+      <h2 id="vertrouwen">Bedrijven die ons vertrouwen</h2>
+      <button class="logo-toggle" type="button" hidden>Pauzeren</button>
     </div>
-  </section>
-
-  <script src="script.js"></script>
+    <div class="logo-window">
+      <div class="logo-track">
+        <div class="logo-group">
+          <a href="https://www.avebe.nl" target="_blank" rel="noopener noreferrer"><img src="assets/companies/Avebelogo.png" alt="Avebe"></a>
+          <a href="https://gemeente.emmen.nl" target="_blank" rel="noopener noreferrer"><img src="assets/companies/emmenlogo.jpg" alt="Gemeente Emmen"></a>
+          <a href="https://www.landal.nl" target="_blank" rel="noopener noreferrer"><img src="assets/companies/landallogo.jpg" alt="Landal"></a>
+          <a href="https://www.defensie.nl/defensieonderdelen/koninklijke-landmacht" target="_blank" rel="noopener noreferrer"><img src="assets/companies/landmachtlogo.jpg" alt="Landmacht"></a>
+          <a href="https://www.defensie.nl/defensieonderdelen/koninklijke-luchtmacht" target="_blank" rel="noopener noreferrer"><img src="assets/companies/luchtmacht.png" alt="Luchtmacht"></a>
+          <a href="https://www.crematoriumdemeerdijk.nl" target="_blank" rel="noopener noreferrer"><img src="assets/companies/cremator.jpg" alt="Crematorium De Meerdijk"></a>
+        </div>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
-
-
-
-
-
-
